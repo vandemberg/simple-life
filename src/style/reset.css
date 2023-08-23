@@ -1,0 +1,39 @@
+/* Reset all elements to have no margin, padding, and border */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Make sure elements that are block-level by default act like it */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+/* Set default font and color for the body */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Reset links to remove default underline and change color */
+a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+/* Remove list styles */
+ul, ol {
+  list-style: none;
+}
+
+/* Set a base font size for easier scaling */
+html {
+  font-size: 16px;
+}
+
+/* Remove the default outline on focused elements */
+:focus {
+  outline: 0;
+}
