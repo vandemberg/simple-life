@@ -1,31 +1,12 @@
 import React, { ReactNode } from "react";
-import { Layout, Menu, Breadcrumb, theme } from "antd";
+import { Layout, Menu, theme } from "antd";
 import Sider from "antd/es/layout/Sider";
+import { Link } from "react-router-dom";
 
-const Icon = function () {
-  return <i></i>;
-};
-
-const items1 = ["1", "2", "3"].map((key) => ({
+const projects = ["Painel", "C2S"].map((key) => ({
   key,
-  label: `nav ${key}`,
+  label: `${key}`,
 }));
-
-const items2 = [Icon, Icon, Icon].map((icon, index) => {
-  const key = String(index + 1);
-  return {
-    key: `sub${key}`,
-    icon: React.createElement(icon),
-    label: `subnav ${key}`,
-    children: new Array(4).fill(null).map((_, j) => {
-      const subKey = index * 4 + j + 1;
-      return {
-        key: subKey,
-        label: `option${subKey}`,
-      };
-    }),
-  };
-});
 
 interface LayoutProps {
   children: ReactNode;
@@ -50,7 +31,7 @@ const App: React.FC<LayoutProps> = ({ children }) => {
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={["2"]}
-          items={items1}
+          items={projects}
         />
       </Header>
       <Content
@@ -58,15 +39,6 @@ const App: React.FC<LayoutProps> = ({ children }) => {
           padding: "0 50px",
         }}
       >
-        <Breadcrumb
-          style={{
-            margin: "16px 0",
-          }}
-        >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
         <Layout
           style={{
             padding: "24px 0",
@@ -86,8 +58,11 @@ const App: React.FC<LayoutProps> = ({ children }) => {
               style={{
                 height: "100%",
               }}
-              items={items2}
-            />
+            >
+              <Menu.Item key="team">
+                <Link to="/teams/1/members">Members</Link>
+              </Menu.Item>
+            </Menu>
           </Sider>
           <Content
             style={{
@@ -104,7 +79,7 @@ const App: React.FC<LayoutProps> = ({ children }) => {
           textAlign: "center",
         }}
       >
-        Ant Design ©2023 Created by Ant UED
+        Sistema do berg
       </Footer>
     </Layout>
   );

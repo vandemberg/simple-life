@@ -1,16 +1,15 @@
-import Home from "./pages/Home";
-import Layout from "./pages/Application/Layout";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React from "react";
+import Layout from "./components/Application/Layout";
+import AppRouter from "./routes/AppRouter";
+import { BrowserRouter as Router } from "react-router-dom";
 
-const App = function () {
+const App: React.FC = function () {
   return (
-    <Layout>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </Router>
-    </Layout>
+    <Router>
+      <Layout>
+        <AppRouter />
+      </Layout>
+    </Router>
   );
 };
 
